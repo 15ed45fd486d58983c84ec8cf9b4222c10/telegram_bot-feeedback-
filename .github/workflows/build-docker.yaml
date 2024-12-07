@@ -1,0 +1,29 @@
+name: Build and push image
+on:
+  [workflow_dispatch]
+  # push:
+  #   branches:
+  #     - master
+  # pull_request:
+  #   branches:
+  #     - master
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: build images bot
+        run: docker build -f dockerfile.bot -t kvesten/hack-tg-bot:latest .
+      - name: push bot
+        run: |
+          docker login --username kvesten -p ${{ secrets.DOCKER_HUB_TOKEN }}
+          docker push kvesten/hack-tg-bot:latest
+
+      - name: build images main
+        run: docker build -f dockerfile.main -t kvesten/hack-tg-main:latest .
+      - name: push main
+        run: |
+          docker login --username kvesten -p ${{ secrets.DOCKER_HUB_TOKEN }}
+          docker push kvesten/hack-tg-main:latest
