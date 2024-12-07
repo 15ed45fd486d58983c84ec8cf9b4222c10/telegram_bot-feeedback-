@@ -1,1 +1,10 @@
 .env
+app/api/__pycache__/main.cpython-311.pyc
+app/api/handlers/__pycache__/complaints.cpython-311.pyc
+app/interfaces/telegram_bot/handlers/__pycache__/__init__.cpython-311.pyc
+app/interfaces/telegram_bot/handlers/__pycache__/complain.cpython-311.pyc
+prisma/migrations/20241207061638_add_location_to_complaint/migration.sql
+prisma/migrations/20241207061928_make_location_optional/migration.sql
+prisma/migrations/20241207062412_update_complaint_status/migration.sql
+app/interfaces/telegram_bot/handlers/__pycache__/__init__.cpython-311.pyc
+app/interfaces/telegram_bot/handlers/__pycache__/complain.cpython-311.pyc

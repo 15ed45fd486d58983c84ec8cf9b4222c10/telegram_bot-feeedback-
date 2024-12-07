@@ -11,7 +11,16 @@ model Complaint {
   id          Int      @id @default(autoincrement())
   userId      Int
   description String
-  status      String   @default("pending")
+  latitude    Float?
+  longitude   Float?
+  status      String
   createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
 }
+
+
+enum ComplaintStatus {
+  sent
+  pending
+  server_load
+}
+  
