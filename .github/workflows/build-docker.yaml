@@ -1,12 +1,8 @@
 name: Build and push image
 on:
-  [workflow_dispatch]
-  # push:
-  #   branches:
-  #     - master
-  # pull_request:
-  #   branches:
-  #     - master
+  push:
+    branches:
+      - main
 
 jobs:
   publish:
