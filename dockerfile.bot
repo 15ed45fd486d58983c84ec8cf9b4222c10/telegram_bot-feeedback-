@@ -8,4 +8,4 @@ COPY . .
 RUN prisma generate && prisma migrate dev --name init
 
 # CMD ["python", "app/interfaces/telegram_bot/bot.py"]
-CMD ["sh", "-c", "prisma generate && python app/interfaces/telegram_bot/bot.py"]
+CMD ["sh", "-c", "prisma generate && prisma migrate dev --name init && python app/api/main.py"]
