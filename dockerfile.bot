@@ -5,5 +5,7 @@ COPY requirements.txt ./
 RUN pip install --upgrade pip
 RUN pip3 install -r requirements.txt
 COPY . .
+RUN prisma generate && prisma migrate dev --name init
 
-CMD ["sh", "start_bot.sh"]
+# CMD ["python", "app/interfaces/telegram_bot/bot.py"]
+CMD ["sh", "-c", "prisma generate && prisma migrate dev --name init && python app/interfaces/telegram_bot/bot.py"]
